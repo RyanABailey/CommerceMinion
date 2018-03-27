@@ -28,12 +28,10 @@ namespace Plugin.MyProject.Import
             var assembly = Assembly.GetExecutingAssembly();
             services.RegisterAllPipelineBlocks(assembly);
 
-            services.Sitecore()
-                            .Pipelines(
-                                pipeLineConfig =>
-                                pipeLineConfig.ConfigurePipeline<IImportMinionMinionPipeline>(
-                                    config => config.Add<ImportMinionBlock>()
-                                                    ));
+            services.Sitecore().Pipelines(p => p
+				.AddPipeline<IImportMinionMinionPipeline, ImportMinionMinionPipeline>(c => c
+					.Add<ImportMinionBlock>()
+				)
 
             services.RegisterAllCommands(assembly);
         }
