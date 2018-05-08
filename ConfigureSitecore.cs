@@ -31,7 +31,7 @@ namespace Plugin.MyProject.Import
             services.Sitecore().Pipelines(p => p
 				.AddPipeline<IImportMinionMinionPipeline, ImportMinionMinionPipeline>(c => c
 					.Add<ImportMinionBlock>()
-				);
+				));
 
             services.RegisterAllCommands(assembly);
         }
